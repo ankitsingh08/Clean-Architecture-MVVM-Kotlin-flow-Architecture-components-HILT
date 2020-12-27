@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">StarWarsSample</string>
+    <string name="enter_character_name">enter character name</string>
+    <string name="characters">Characters</string>
+</resources>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16"
+            android:layout_marginTop="@dimen/dp16"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tv_name_value"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/tv_name_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp16"
+            android:layout_marginEnd="@dimen/dp16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_name"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Luke SkyWalker" />
+
+        <TextView
+            android:id="@+id/tv_birth_year"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16"
+            android:layout_marginTop="@dimen/dp16"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name"
+            tools:text="Birth Year" />
+
+        <TextView
+            android:id="@+id/tv_birth_year_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp16"
+            android:layout_marginEnd="@dimen/dp16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_birth_year"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name_value"
+            tools:text="72BBY" />
+
+        <TextView
+            android:id="@+id/tv_height"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16"
+            android:layout_marginTop="@dimen/dp16"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_birth_year"
+            tools:text="Height" />
+
+        <TextView
+            android:id="@+id/tv_height_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp16"
+            android:layout_marginEnd="@dimen/dp16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_height"
+            app:layout_constraintTop_toBottomOf="@+id/tv_birth_year_value"
+            tools:text="163cm" />
+
+        <TextView
+            android:id="@+id/tv_species"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16"
+            android:layout_marginTop="@dimen/dp16"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_height"
+            tools:text="Species" />
+
+        <TextView
+            android:id="@+id/tv_species_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp16"
+            android:layout_marginEnd="@dimen/dp16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_species"
+            app:layout_constraintTop_toBottomOf="@+id/tv_height_value"
+            tools:text="Jabba the hut" />
+
+        <TextView
+            android:id="@+id/tv_language"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16"
+            android:layout_marginTop="@dimen/dp16"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_species"
+            tools:text="Language" />
+
+        <TextView
+            android:id="@+id/tv_language_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp16"
+            android:layout_marginEnd="@dimen/dp16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_language"
+            app:layout_constraintTop_toBottomOf="@+id/tv_species_value"
+            tools:text="Jabba the hut" />
+
+        <TextView
+            android:id="@+id/tv_homeworld"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16"
+            android:layout_marginTop="@dimen/dp16"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_language"
+            tools:text="Home World" />
+
+        <TextView
+            android:id="@+id/tv_homeworld_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp16"
+            android:layout_marginEnd="@dimen/dp16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_language"
+            app:layout_constraintTop_toBottomOf="@+id/tv_language_value"
+            tools:text="Tatooine" />
+
+        <TextView
+            android:id="@+id/tv_population"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16"
+            android:layout_marginTop="@dimen/dp16"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_homeworld"
+            tools:text="Population" />
+
+        <TextView
+            android:id="@+id/tv_population_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp16"
+            android:layout_marginEnd="@dimen/dp16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_language"
+            app:layout_constraintTop_toBottomOf="@+id/tv_homeworld_value"
+            tools:text="2000000" />
+
+        <TextView
+            android:id="@+id/tv_films"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16"
+            android:layout_marginTop="@dimen/dp16"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_population"
+            tools:text="Films" />
+
+        <TextView
+            android:id="@+id/tv_films_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp16"
+            android:layout_marginEnd="@dimen/dp16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tv_language"
+            app:layout_constraintTop_toBottomOf="@+id/tv_population_value"
+            tools:text="2000000" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

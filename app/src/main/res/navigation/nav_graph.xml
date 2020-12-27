@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/navigation_character_search_fragment"
+    android:id="@+id/nav_graph">
+
+    <fragment
+        android:id="@+id/navigation_character_search_fragment"
+        android:name="ankit.com.starwarssample.view.CharacterSearchFragment"
+        android:label="@string/characters"
+        tools:layout="@layout/character_search_fragment" >
+        <action
+            android:id="@+id/action_navigation_character_search_fragment_to_characterDetailsFragment"
+            app:destination="@id/characterDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/characterDetailsFragment"
+        android:name="ankit.com.starwarssample.view.CharacterDetailsFragment"
+        android:label="CharacterDetailsFragment" />
+
+</navigation>

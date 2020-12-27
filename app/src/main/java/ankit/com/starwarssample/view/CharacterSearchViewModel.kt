@@ -1,18 +1,17 @@
 package ankit.com.starwarssample.view
 
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.*
-import ankit.com.domain.core.ApiResponse
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import ankit.com.domain.core.successOr
-import ankit.com.domain.model.CharacterDomainModel
-import ankit.com.domain.model.FilmsDomainModel
 import ankit.com.domain.usecase.SearchCharactersUseCase
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.async
-import kotlinx.coroutines.channels.BroadcastChannel
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.*
+import ankit.com.starwarssample.mapper.toPresentationCharacterList
+import ankit.com.starwarssample.model.CharacterPresentationModel
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.launch
 
 /**
@@ -25,29 +24,8 @@ class CharacterSearchViewModel @ViewModelInject constructor(
         private val searchCharactersUseCase: SearchCharactersUseCase
 ) : ViewModel() {
 
-//    val queryChannel = BroadcastChannel<String>(Channel.CONFLATED)
-//
-//    private val _characters = queryChannel
-//        .asFlow()
-//        .debounce(SEARCH_DELAY_MILLIS)
-//        .mapLatest { offeredString ->
-//            if (offeredString.length >= MIN_QUERY_LENGTH) {
-//                getStarWarsCharacters(offeredString)
-//                        .map {
-//                            it.successOr(emptyList())
-//                        }
-//            } else {
-//                emptyList()
-//            }
-//        }
-//        .catch {
-//            // Log Error
-//        }
-//
-//    val characters =_characters.asLiveData()
-
-    private val _characters = MutableLiveData<List<CharacterDomainModel>>()
-    val characters: LiveData<List<CharacterDomainModel>> = _characters
+    private val _characters = MutableLiveData<List<CharacterPresentationModel>>()
+    val characters: LiveData<List<CharacterPresentationModel>> = _characters
 
     fun searchStarWarCharacters(characterName: String) {
         viewModelScope.launch {
@@ -60,14 +38,14 @@ class CharacterSearchViewModel @ViewModelInject constructor(
                 .debounce(SEARCH_DELAY_MILLIS)
                 .mapLatest {
                     if (characterName.length >= MIN_QUERY_LENGTH) {
-                        getStarWarsCharacters(characterName)
+                        searchCharactersUseCase(characterName)
                         it.successOr(emptyList())
                     } else {
                         emptyList()
                     }
                 }
                 .collect {
-                    _characters.value = it
+                    _characters.value = it.toPresentationCharacterList()
                 }
     }
 }

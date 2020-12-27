@@ -1,17 +1,17 @@
 package ankit.com.starwarssample.view
 
 import androidx.recyclerview.widget.DiffUtil
-import ankit.com.domain.model.CharacterDomainModel
+import ankit.com.starwarssample.model.CharacterPresentationModel
 
 /**
  * Created by AnkitSingh on 12/12/20.
  */
-class CharacterDiffCallback : DiffUtil.ItemCallback<CharacterDomainModel>() {
-    override fun areItemsTheSame(oldItem: CharacterDomainModel, newItem: CharacterDomainModel): Boolean {
+class CharacterDiffCallback : DiffUtil.ItemCallback<CharacterPresentationModel>() {
+    override fun areItemsTheSame(oldItem: CharacterPresentationModel, newItem: CharacterPresentationModel): Boolean {
         return oldItem.name == newItem.name
     }
 
-    override fun areContentsTheSame(oldItem: CharacterDomainModel, newItem: CharacterDomainModel): Boolean {
+    override fun areContentsTheSame(oldItem: CharacterPresentationModel, newItem: CharacterPresentationModel): Boolean {
         return oldItem == newItem
     }
 

@@ -4,14 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import ankit.com.domain.model.CharacterDomainModel
 import ankit.com.starwarssample.databinding.CharactersListItemBinding
+import ankit.com.starwarssample.model.CharacterPresentationModel
 
 /**
  * Created by AnkitSingh on 12/12/20.
  */
 class StarWarCharactersAdapter (private val listener: OnClickHandler):
-        ListAdapter<CharacterDomainModel, RecyclerView.ViewHolder>(CharacterDiffCallback()) {
+        ListAdapter<CharacterPresentationModel, RecyclerView.ViewHolder>(CharacterDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return CharactersViewHolder(
@@ -32,7 +32,7 @@ class StarWarCharactersAdapter (private val listener: OnClickHandler):
 
     class CharactersViewHolder(private val binding: CharactersListItemBinding) :
             RecyclerView.ViewHolder(binding.root) {
-        fun bind(listener: OnClickHandler, item: CharacterDomainModel) {
+        fun bind(listener: OnClickHandler, item: CharacterPresentationModel) {
             binding.apply {
                 character = item
                 executePendingBindings()
@@ -41,6 +41,6 @@ class StarWarCharactersAdapter (private val listener: OnClickHandler):
     }
 
     interface OnClickHandler {
-        fun onItemClick(character: CharacterDomainModel)
+        fun onItemClick(character: CharacterPresentationModel)
     }
 }

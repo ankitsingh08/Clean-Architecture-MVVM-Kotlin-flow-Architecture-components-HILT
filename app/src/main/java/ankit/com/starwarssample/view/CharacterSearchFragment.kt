@@ -9,10 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import ankit.com.domain.model.CharacterDomainModel
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import ankit.com.starwarssample.R
 import ankit.com.starwarssample.databinding.CharacterSearchFragmentBinding
+import ankit.com.starwarssample.model.CharacterPresentationModel
 import dagger.hilt.android.AndroidEntryPoint
+
 
 /**
  * Created by AnkitSingh on 12/12/20.
@@ -36,6 +39,13 @@ class CharacterSearchFragment : Fragment(), StarWarCharactersAdapter.OnClickHand
 
     private fun initializeUI() {
         val adapter = StarWarCharactersAdapter(this)
+
+        binding.rvCharacters.addItemDecoration(
+            DividerItemDecoration(
+                context,
+                LinearLayoutManager.VERTICAL
+            )
+        )
         binding.rvCharacters.adapter = adapter
 
         binding.search.clearFocus()
@@ -56,7 +66,7 @@ class CharacterSearchFragment : Fragment(), StarWarCharactersAdapter.OnClickHand
         })
     }
 
-    override fun onItemClick(character: CharacterDomainModel) {
+    override fun onItemClick(character: CharacterPresentationModel) {
           val bundle = Bundle()
           bundle.putString("planet", character.homeworld)
           bundle.putString("species", character.species[0])

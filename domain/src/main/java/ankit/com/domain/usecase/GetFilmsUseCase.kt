@@ -14,9 +14,9 @@ import javax.inject.Inject
 class GetFilmsUseCase @Inject constructor(
         private val repository: StarWarCharacterDetailRepository,
         @IoDispatcher ioDispatcher: CoroutineDispatcher
-) : BaseUseCase<String, List<FilmsDomainModel>>(ioDispatcher) {
+) : BaseUseCase<List<String>, List<FilmsDomainModel>>(ioDispatcher) {
 
-    override fun execute(parameters: String): Flow<ApiResponse<List<FilmsDomainModel>>> {
+    override fun execute(parameters: List<String>): Flow<ApiResponse<List<FilmsDomainModel>>> {
         return repository.getCharacterFilmsDetails(parameters)
     }
 }

@@ -11,9 +11,9 @@ import kotlinx.coroutines.flow.Flow
  */
 interface StarWarCharacterDetailRepository{
 
-    fun getCharacterSpeciesDetails(url: String): Flow<ApiResponse<SpeciesDomainModel>>
+    fun getCharacterSpeciesDetails(url: List<String>): Flow<ApiResponse<List<SpeciesDomainModel>>>
 
-    fun getCharacterPlanetDetails(url: String): Flow<ApiResponse<PlanetDomainModel>>
+    fun getCharacterPlanetDetails(urls: String): Flow<ApiResponse<PlanetDomainModel>>
 
-    fun getCharacterFilmsDetails(url: String): Flow<ApiResponse<List<FilmsDomainModel>>>
+    fun getCharacterFilmsDetails(urls: List<String>): Flow<ApiResponse<List<FilmsDomainModel>>>
 }

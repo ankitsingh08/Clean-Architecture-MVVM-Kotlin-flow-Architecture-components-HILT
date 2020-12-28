@@ -2,4 +2,13 @@
     <string name="app_name">StarWarsSample</string>
     <string name="enter_character_name">enter character name</string>
     <string name="characters">Characters</string>
+    <string name="character_details">Character Details</string>
+    <string name="name">Name :</string>
+    <string name="birth_year">Birth Year :</string>
+    <string name="height">Height :</string>
+    <string name="home_world">Home World</string>
+    <string name="population">Population :</string>
+    <string name="language">Language :</string>
+    <string name="species">Species</string>
+    <string name="movies">Movies</string>
 </resources>

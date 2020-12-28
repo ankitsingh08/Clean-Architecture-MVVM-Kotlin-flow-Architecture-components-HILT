@@ -64,3 +64,15 @@ fun List<CharacterDomainModel>.toPresentationCharacterList(): List<CharacterPres
         it.toPresentation()
     }
 }
+
+fun List<SpeciesDomainModel>.toPresentationSpeciesList(): List<SpeciesPresentationModel> {
+    return this.map {
+        it.toPresentation()
+    }
+}
+
+fun List<FilmsDomainModel>.toPresentationFilmsList(): List<FilmsPresentationModel> {
+    return this.map {
+        it.toPresentation()
+    }
+}

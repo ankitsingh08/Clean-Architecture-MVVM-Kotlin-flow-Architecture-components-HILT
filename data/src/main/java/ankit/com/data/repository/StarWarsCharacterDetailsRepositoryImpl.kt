@@ -14,15 +14,19 @@ import javax.inject.Inject
 /**
  * Created by AnkitSingh on 12/16/20.
  */
-class StarWarsCharacterDetailsRepositoryImpl @Inject constructor(private val starWarsService: StarWarsService)
-    : StarWarCharacterDetailRepository {
+class StarWarsCharacterDetailsRepositoryImpl @Inject constructor(private val starWarsService: StarWarsService) :
+    StarWarCharacterDetailRepository {
 
-    override fun getCharacterSpeciesDetails(url: String): Flow<ApiResponse<SpeciesDomainModel>> {
+    override fun getCharacterSpeciesDetails(urls: List<String>): Flow<ApiResponse<List<SpeciesDomainModel>>> {
         return flow {
             emit(ApiResponse.Loading)
             try {
-                val response = starWarsService.getCharacterSpecies(url)
-                emit(ApiResponse.Success(response.toDomainModel()))
+                val speciesList = mutableListOf<SpeciesDomainModel>()
+                urls.forEach {
+                    val species = starWarsService.getCharacterSpecies(it)
+                    speciesList.add(species.toDomainModel())
+                }
+                emit(ApiResponse.Success(speciesList))
             } catch (exception: Exception) {
                 emit(ApiResponse.Error(exception))
             }
@@ -41,22 +45,19 @@ class StarWarsCharacterDetailsRepositoryImpl @Inject constructor(private val sta
         }
     }
 
-    override fun getCharacterFilmsDetails(url: String): Flow<ApiResponse<MutableList<FilmsDomainModel>>> {
+    override fun getCharacterFilmsDetails(urls: List<String>): Flow<ApiResponse<MutableList<FilmsDomainModel>>> {
         return flow {
             emit(ApiResponse.Loading)
             try {
-                val response = starWarsService.getFilmsList(url)
                 val filmsList = mutableListOf<FilmsDomainModel>()
-                response.filmUrls.forEach {
+                urls.forEach {
                     val film = starWarsService.getFilmDetails(it)
                     filmsList.add(film.toDomainModel())
                 }
-
                 emit(ApiResponse.Success(filmsList))
             } catch (exception: Exception) {
                 emit(ApiResponse.Error(exception))
             }
         }
     }
-
 }

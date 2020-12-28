@@ -68,11 +68,7 @@ class CharacterSearchFragment : Fragment(), StarWarCharactersAdapter.OnClickHand
 
     override fun onItemClick(character: CharacterPresentationModel) {
           val bundle = Bundle()
-          bundle.putString("planet", character.homeworld)
-          bundle.putString("species", character.species[0])
-          bundle.putString("films", character.films[0])
+          bundle.putParcelable("character", character)
           findNavController().navigate(R.id.characterDetailsFragment, bundle)
     }
-
-
 }

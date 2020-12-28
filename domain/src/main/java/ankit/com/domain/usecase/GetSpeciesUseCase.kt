@@ -14,9 +14,9 @@ import javax.inject.Inject
 class GetSpeciesUseCase @Inject constructor(
         private val repository: StarWarCharacterDetailRepository,
         @IoDispatcher ioDispatcher: CoroutineDispatcher
-): BaseUseCase<String, SpeciesDomainModel>(ioDispatcher) {
+): BaseUseCase<List<String>, List<SpeciesDomainModel>>(ioDispatcher) {
 
-    override fun execute(parameters: String): Flow<ApiResponse<SpeciesDomainModel>> {
+    override fun execute(parameters: List<String>): Flow<ApiResponse<List<SpeciesDomainModel>>> {
         return repository.getCharacterSpeciesDetails(parameters)
     }
 }

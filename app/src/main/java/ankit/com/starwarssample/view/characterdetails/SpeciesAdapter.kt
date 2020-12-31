@@ -1,22 +1,22 @@
-package ankit.com.starwarssample.view
+package ankit.com.starwarssample.view.characterdetails
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import ankit.com.starwarssample.databinding.FilmItemBinding
 import ankit.com.starwarssample.databinding.SpeciesItemBinding
-import ankit.com.starwarssample.model.FilmsPresentationModel
 import ankit.com.starwarssample.model.SpeciesPresentationModel
 
 /**
- * Created by AnkitSingh on 12/28/20.
+ * Created by AnkitSingh on 12/12/20.
  */
-class FilmsAdapter : ListAdapter<FilmsPresentationModel, RecyclerView.ViewHolder>(FilmsDiffCallback()) {
+class SpeciesAdapter : ListAdapter<SpeciesPresentationModel, RecyclerView.ViewHolder>(
+    SpeciesDiffCallback()
+) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return FilmViewHolder(
-            FilmItemBinding.inflate(
+        return SpeciesViewHolder(
+            SpeciesItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent, false
             )
@@ -24,15 +24,15 @@ class FilmsAdapter : ListAdapter<FilmsPresentationModel, RecyclerView.ViewHolder
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val film = getItem(position)
-        (holder as FilmViewHolder).bind(film)
+        val species = getItem(position)
+        (holder as SpeciesViewHolder).bind(species)
     }
 
-    class FilmViewHolder(private val binding: FilmItemBinding) :
+    class SpeciesViewHolder(private val binding: SpeciesItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: FilmsPresentationModel) {
+        fun bind(item: SpeciesPresentationModel) {
             binding.apply {
-                film = item
+                species = item
                 executePendingBindings()
             }
         }

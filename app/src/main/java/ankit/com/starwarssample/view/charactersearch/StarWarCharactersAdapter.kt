@@ -1,4 +1,4 @@
-package ankit.com.starwarssample.view
+package ankit.com.starwarssample.view.charactersearch
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -15,10 +15,10 @@ class StarWarCharactersAdapter (private val listener: OnClickHandler):
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return CharactersViewHolder(
-                CharactersListItemBinding.inflate(
-                        LayoutInflater.from(parent.context),
-                        parent, false
-                )
+            CharactersListItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent, false
+            )
         )
     }
 

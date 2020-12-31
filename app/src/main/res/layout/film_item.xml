@@ -11,8 +11,9 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:cardElevation="@dimen/card_elevation"
+        android:layout_marginTop="@dimen/card_side_margin"
         android:layout_marginStart="@dimen/card_side_margin"
         android:layout_marginEnd="@dimen/card_side_margin"
         android:layout_marginBottom="@dimen/card_bottom_margin"
@@ -22,7 +23,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/dp16"
-        android:layout_marginEnd="@dimen/dp16">
+        android:layout_marginEnd="@dimen/dp16"
+        android:layout_marginTop="@dimen/dp8"
+        android:layout_marginBottom="@dimen/dp8">
 
         <TextView
             android:id="@+id/tv_film_title"

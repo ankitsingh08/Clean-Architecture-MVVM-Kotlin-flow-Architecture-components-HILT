@@ -1,4 +1,4 @@
-package ankit.com.starwarssample.view
+package ankit.com.starwarssample.view.characterdetails
 
 import androidx.recyclerview.widget.DiffUtil
 import ankit.com.starwarssample.model.CharacterPresentationModel

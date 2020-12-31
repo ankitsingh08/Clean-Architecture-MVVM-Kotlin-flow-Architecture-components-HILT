@@ -1,4 +1,4 @@
-package ankit.com.starwarssample.view
+package ankit.com.starwarssample.view.characterdetails
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -35,22 +35,25 @@ class CharacterDetailsFragment : Fragment() {
     private fun initializeUI() {
         val character = arguments?.getParcelable<CharacterPresentationModel>("character")
 
-        binding.viewModel = characterDetailsViewModel
-        binding.character = character
+        binding.characterDetailViewModel = characterDetailsViewModel
+        binding.characterModel = character
 
         val planetUrl = character?.homeworld ?: ""
         val speciesUrl = character?.species ?: emptyList()
         val filmUrl = character?.films ?: emptyList()
+
         characterDetailsViewModel.getCharacterDetails(planetUrl, speciesUrl, filmUrl)
 
-        val speciesAdapter = SpeciesAdapter()
+        val speciesAdapter =
+            SpeciesAdapter()
         binding.rvSpecies.adapter = speciesAdapter
 
         characterDetailsViewModel.species.observe(viewLifecycleOwner, Observer {
             speciesAdapter.submitList(it)
         })
 
-        val filmAdapter = FilmsAdapter()
+        val filmAdapter =
+            FilmsAdapter()
         binding.rvMovies.adapter = filmAdapter
 
         characterDetailsViewModel.films.observe(viewLifecycleOwner, Observer {

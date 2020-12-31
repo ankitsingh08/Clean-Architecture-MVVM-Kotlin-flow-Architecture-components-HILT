@@ -1,4 +1,4 @@
-package ankit.com.starwarssample.view
+package ankit.com.starwarssample.view.charactersearch
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -38,7 +38,12 @@ class CharacterSearchFragment : Fragment(), StarWarCharactersAdapter.OnClickHand
     }
 
     private fun initializeUI() {
-        val adapter = StarWarCharactersAdapter(this)
+        binding.viewModel = characterSearchViewModel
+
+        val adapter =
+            StarWarCharactersAdapter(
+                this
+            )
 
         binding.rvCharacters.addItemDecoration(
             DividerItemDecoration(
@@ -56,14 +61,19 @@ class CharacterSearchFragment : Fragment(), StarWarCharactersAdapter.OnClickHand
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
-                characterSearchViewModel.searchStarWarCharacters(newText)
+                if (newText.isNotBlank()) {
+                    characterSearchViewModel.searchStarWarCharacters(newText)
+                    binding.loader.visibility = View.VISIBLE
+                }
                 return false
             }
         })
 
         characterSearchViewModel.characters.observe(viewLifecycleOwner, Observer {
+            binding.loader.visibility = View.GONE
             adapter.submitList(it)
         })
+
     }
 
     override fun onItemClick(character: CharacterPresentationModel) {

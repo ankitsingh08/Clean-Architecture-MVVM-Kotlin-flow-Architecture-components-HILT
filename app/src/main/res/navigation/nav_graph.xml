@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_character_search_fragment"
-        android:name="ankit.com.starwarssample.view.CharacterSearchFragment"
+        android:name="ankit.com.starwarssample.view.charactersearch.CharacterSearchFragment"
         android:label="@string/characters"
         tools:layout="@layout/character_search_fragment" >
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/characterDetailsFragment"
-        android:name="ankit.com.starwarssample.view.CharacterDetailsFragment"
+        android:name="ankit.com.starwarssample.view.characterdetails.CharacterDetailsFragment"
         android:label="CharacterDetailsFragment" />
 
 </navigation>

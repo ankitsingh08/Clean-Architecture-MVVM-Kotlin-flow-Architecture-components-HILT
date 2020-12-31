@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="character"
+            type="ankit.com.starwarssample.model.CharacterPresentationModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/card_side_margin"
+        android:layout_marginStart="@dimen/card_side_margin"
+        android:layout_marginEnd="@dimen/card_side_margin"
+        android:layout_marginBottom="@dimen/card_bottom_margin"
+        app:cardElevation="@dimen/card_elevation"
+        app:cardPreventCornerOverlap="false">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp8"
+            android:layout_marginBottom="@dimen/dp8">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp16"
+                android:text="@string/name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_character_details"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Name :" />
+
+            <TextView
+                android:id="@+id/tv_name_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp8"
+                android:text="@{character.name}"
+                app:layout_constraintStart_toEndOf="@+id/tv_name"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Luke SkyWalker" />
+
+            <TextView
+                android:id="@+id/tv_birth_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp16"
+                android:text="@string/birth_year"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name"
+                tools:text="Birth Year :" />
+
+            <TextView
+                android:id="@+id/tv_birth_year_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp8"
+                android:text="@{character.birth_year}"
+                app:layout_constraintStart_toEndOf="@+id/tv_birth_year"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name_value"
+                tools:text="72BBY" />
+
+            <TextView
+                android:id="@+id/tv_height"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp16"
+                android:text="@string/height"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_birth_year"
+                tools:text="Height :" />
+
+            <TextView
+                android:id="@+id/tv_height_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp8"
+                android:text="@{character.height}"
+                app:layout_constraintStart_toEndOf="@+id/tv_height"
+                app:layout_constraintTop_toBottomOf="@+id/tv_birth_year_value"
+                tools:text="163cm" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

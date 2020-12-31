@@ -1,4 +1,4 @@
-package ankit.com.starwarssample.view
+package ankit.com.starwarssample.view.characterdetails
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData

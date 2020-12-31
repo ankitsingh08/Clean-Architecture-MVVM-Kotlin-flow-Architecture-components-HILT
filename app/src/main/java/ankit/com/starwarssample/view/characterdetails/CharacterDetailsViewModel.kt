@@ -58,9 +58,9 @@ class CharacterDetailsViewModel @ViewModelInject constructor(
 
     private suspend fun getSpeciesDetails(urls: List<String>) {
         getSpeciesUseCase(urls)
-            .map { it.successOr(null) }
+            .map { it.successOr(emptyList()) }
             .collect{
-                _species.value = it?.toPresentationSpeciesList()
+                _species.value = it.toPresentationSpeciesList()
             }
 
     }

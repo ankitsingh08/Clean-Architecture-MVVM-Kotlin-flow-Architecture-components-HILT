@@ -10,8 +10,14 @@ java {
 
 dependencies {
     def domainDependencies = rootProject.ext.domainDependencies
+    def domainTestDependencies = rootProject.ext.domainTestDependencies
 
     api domainDependencies.kotlin
     api domainDependencies.coroutinesCore
     api domainDependencies.hilt
+
+    testImplementation domainTestDependencies.junit
+    testImplementation domainTestDependencies.mockito
+    testImplementation domainTestDependencies.coroutinesTest
+    testImplementation domainTestDependencies.mockitoCore
 }

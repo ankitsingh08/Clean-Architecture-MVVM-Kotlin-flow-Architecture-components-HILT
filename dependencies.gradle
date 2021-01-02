@@ -7,11 +7,22 @@ ext {
     ext.navigation_version = "2.2.0"
     ext.retrofit_version = '2.6.2'
     ext.okhttp_version = '3.10.0'
+    ext.jUnitVersion = '4.13.1'
+    ext.mockitoKotlinVersion = '2.2.0'
+    ext.coroutines_test_version = '1.4.1'
+    ext.mockito_core = '3.4.6'
 
     domainDependencies = [
             kotlin          : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
             coroutinesCore  : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version",
             hilt            : "com.google.dagger:hilt-android:$hilt_version"
+    ]
+
+    domainTestDependencies = [
+            junit: "junit:junit:$jUnitVersion",
+            mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
+            coroutinesTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_test_version",
+            mockitoCore: "org.mockito:mockito-core:$mockito_core"
     ]
 
     dataDependencies = [

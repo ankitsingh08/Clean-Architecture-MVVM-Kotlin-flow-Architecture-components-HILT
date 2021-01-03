@@ -11,4 +11,6 @@
     <string name="language">Language :</string>
     <string name="species">Species</string>
     <string name="movies">Movies</string>
+    <string name="height_cm">%s cm</string>
+    <string name="height_inch">%s inches</string>
 </resources>

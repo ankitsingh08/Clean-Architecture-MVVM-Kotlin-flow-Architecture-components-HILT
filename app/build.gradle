@@ -72,6 +72,8 @@ dependencies {
     // Gson dependency
     implementation "com.google.code.gson:gson:$rootProject.gson_version"
 
+    implementation 'com.google.android.material:material:1.2.1'
+
     //Architecture components
     implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycle_version"

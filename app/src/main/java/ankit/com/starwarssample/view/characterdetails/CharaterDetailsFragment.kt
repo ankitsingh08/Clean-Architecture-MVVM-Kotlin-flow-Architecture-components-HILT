@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -35,6 +36,8 @@ class CharacterDetailsFragment : Fragment() {
     private fun initializeUI() {
         val character = arguments?.getParcelable<CharacterPresentationModel>("character")
 
+        (activity as? AppCompatActivity)?.supportActionBar?.title = character?.name
+
         binding.characterDetailViewModel = characterDetailsViewModel
         binding.characterModel = character
 
@@ -49,7 +52,15 @@ class CharacterDetailsFragment : Fragment() {
         binding.rvSpecies.adapter = speciesAdapter
 
         characterDetailsViewModel.species.observe(viewLifecycleOwner, Observer {
-            speciesAdapter.submitList(it)
+            if (it.isNotEmpty()) {
+                binding.tvSpeciesUnavailable.visibility = View.GONE
+                binding.rvSpecies.visibility = View.VISIBLE
+                speciesAdapter.submitList(it)
+            } else {
+                binding.tvSpeciesUnavailable.visibility = View.VISIBLE
+                binding.rvSpecies.visibility = View.GONE
+            }
+
         })
 
         val filmAdapter =

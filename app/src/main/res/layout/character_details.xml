@@ -86,6 +86,16 @@
             app:layout_constraintTop_toBottomOf="@+id/home_world_details_layout"
             tools:text="Species" />
 
+        <TextView
+            android:id="@+id/tv_species_unavailable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/dp16"
+            android:text="No data available"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/tv_species"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_species"
             android:layout_width="match_parent"

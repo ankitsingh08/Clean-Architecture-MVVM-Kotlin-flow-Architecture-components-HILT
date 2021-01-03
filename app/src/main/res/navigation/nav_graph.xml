@@ -18,6 +18,6 @@
     <fragment
         android:id="@+id/characterDetailsFragment"
         android:name="ankit.com.starwarssample.view.characterdetails.CharacterDetailsFragment"
-        android:label="CharacterDetailsFragment" />
+        android:label="Character Details" />
 
 </navigation>

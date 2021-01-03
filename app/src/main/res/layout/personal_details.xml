@@ -8,6 +8,10 @@
         <variable
             name="character"
             type="ankit.com.starwarssample.model.CharacterPresentationModel" />
+
+        <import
+            alias="ExtensionFunctions"
+            type="ankit.com.starwarssample.util.ExtensionsKt" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -81,10 +85,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dp8"
-                android:text="@{character.height}"
+                android:text="@{String.format(@string/height_cm,character.height)}"
                 app:layout_constraintStart_toEndOf="@+id/tv_height"
                 app:layout_constraintTop_toBottomOf="@+id/tv_birth_year_value"
-                tools:text="163cm" />
+                tools:text="163 cm" />
+
+            <TextView
+                android:id="@+id/tv_height_inch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp8"
+                android:text="@{String.format(@string/height_inch,ExtensionFunctions.convertToInches(character.height))}"
+                app:layout_constraintStart_toEndOf="@+id/tv_height_value"
+                app:layout_constraintTop_toBottomOf="@+id/tv_birth_year_value"
+                tools:text="70.12 inches" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

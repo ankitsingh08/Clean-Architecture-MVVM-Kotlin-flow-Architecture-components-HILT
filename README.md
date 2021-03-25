@@ -47,11 +47,6 @@ Unit test cases are included for the following:
  - **Mapper** : Used to map data models to domains models to keep domain independent of data layer.
  - **DataModel** : Structure for data retrieved from remote data source. 
 
-# TODO
-- Add loaders for different sections while loading details like species, films, planet details etc.
-- Add UI test cases
-- Moved common test code to a base class
-
 # Screenshots
  <img src="https://user-images.githubusercontent.com/16702310/103493990-a3351c00-4e02-11eb-975f-a748e2892e7e.png" width="30%">  <img src="https://user-images.githubusercontent.com/16702310/103493995-ab8d5700-4e02-11eb-8860-cbf1d8da85ce.png" width="30%">  <img src="https://user-images.githubusercontent.com/16702310/103494001-b0520b00-4e02-11eb-9cc7-052a89132a15.png" width="30%">
  <img src="https://user-images.githubusercontent.com/16702310/103494004-b516bf00-4e02-11eb-884d-b8d84daa73ad.png" width="30%">
